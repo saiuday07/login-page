@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient background */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Login container */
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            z-index: 1;
+        }
+
+        /* Heading styling */
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Input styling */
+        .input-field {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-field label {
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Button styling */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #2575fc;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #6a11cb;
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Proudly Indian Text */
+        .proudly-indian {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <div class="input-field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+
+    <p class="proudly-indian">Proudly Indian</p>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Sample username and password
+            const correctUsername = 'user123';
+            const correctPassword = 'password123';
+
+            // Clear error message
+            errorMessage.textContent = '';
+
+            // Check if credentials match
+            if (username === correctUsername && password === correctPassword) {
+                alert('Login Successful!');
+                // Redirect or show the game or page you want
+                window.location.href = 'dashboard.html'; // Replace with your desired page
+            } else {
+                errorMessage.textContent = 'not yet created!';
+            }
+        }
+    </script>
+
+</body>
+</html>
